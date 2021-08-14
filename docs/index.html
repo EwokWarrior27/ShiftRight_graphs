@@ -19,7 +19,7 @@
             // Create a viz object and embed it in the container div.
             var viz0 = new tableau.Viz(containerDiv0, url, options); 
             
-            var containerDiv1 = document.getElementById("vizContainer"),
+            /*var containerDiv1 = document.getElementById("vizContainer"),
                 url = "https://public.tableau.com/views/NumberofcompaniesinUSStates/companiesperstate?:language=en-US&:display_count=n&:origin=viz_share_link",
                 options = {
                     hideTabs: true,
@@ -29,13 +29,26 @@
                 };
             
             // Create a viz object and embed it in the container div.
-            var viz1 = new tableau.Viz(containerDiv1, url, options); 
+            var viz1 = new tableau.Viz(containerDiv1, url, options);*/
+            
+            function vizResize() {
+                var width = document.getElementById("resizeWidth").value;
+                var height = document.getElementById("resizeHeight").value;
+                viz.setFrameSize(parseInt(width, 10), parseInt(height, 10));
+            }
         }
     </script>
 </head>
 
 <body onload="initViz();">
     <div id="vizContainer" style="width:1600px; height:700px;"></div>    
+    <div id="controls" style="padding:20px;">
+        <form id="resizeForm">
+            <input type="text" id="resizeWidth" placeholder="Width">
+            <input type="text" id="resizeHeight" placeholder="Height">
+            <button type="button" onClick="vizResize();">Resize</button>
+        </form>
+    </div>
 </body>
 
 </html>
