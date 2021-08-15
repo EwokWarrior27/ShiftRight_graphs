@@ -6,49 +6,52 @@
     
     <script type="text/javascript" src="https://public.tableau.com/javascripts/api/tableau-2.min.js"></script>
     <script type="text/javascript">
-        function initViz() {
-            var containerDiv0 = document.getElementById("vizContainer"),
-                url = "https://public.tableau.com/views/company_graphs_16288763389140/companytypesbyyearest_?:language=en-US&:display_count=n&:origin=viz_share_link",
+        <script type="text/javascript" src="https://public.tableau.com/javascripts/api/tableau-2.min.js"></script>
+    <script type="text/javascript">
+        var vizList = ["https://public.tableau.com/views/company_graphs/companycountriesbyfoundingyear?:language=en-US&:display_count=n&:origin=viz_share_link",
+            "https://public.tableau.com/views/NumberofcompaniesinUSStates/companiesperstate?:language=en-US&:display_count=n&:origin=viz_share_link",
+            "https://public.tableau.com/views/company_graphs_16288763389140/companytypesbyyearest_?:language=en-US&:retry=yes&:display_count=n&:origin=viz_share_link",
+            "https://public.tableau.com/views/NumberofProductsforeachCompany/NumberofProductsbyCompany?:language=en-US&:display_count=n&:origin=viz_share_link",
+            "https://public.tableau.com/views/NumberofSubcategoriesineachProductCategory/NumberofSubcategoriesbyCategory?:language=en-US&:display_count=n&:origin=viz_share_link",
+            "https://public.tableau.com/app/profile/arjun.chopra1438/viz/ProductCountbySubcategoryandCategory/ProductCountbySubcategoryandCategory"];
+        
+        var viz,
+            vizLen = vizList.length,
+            vizCount = 0;
+        
+        function createViz(vizPlusMinus) {
+            var vizDiv = document.getElementById("vizContainer"),
                 options = {
-                    hideTabs: true,
-                    onFirstInteractive: function () {
-                        console.log("Run this code when the viz has finished loading.");
-                    }
+                    hideTabs: true
                 };
+
+            vizCount = vizCount + vizPlusMinus;
             
-            // Create a viz object and embed it in the container div.
-            var viz0 = new tableau.Viz(containerDiv0, url, options); 
-            
-            /*var containerDiv1 = document.getElementById("vizContainer"),
-                url = "https://public.tableau.com/views/NumberofcompaniesinUSStates/companiesperstate?:language=en-US&:display_count=n&:origin=viz_share_link",
-                options = {
-                    hideTabs: true,
-                    onFirstInteractive: function () {
-                        console.log("Run this code when the viz has finished loading.");
-                    }
-                };
-            
-            // Create a viz object and embed it in the container div.
-            var viz1 = new tableau.Viz(containerDiv1, url, options);*/
-            
-            function vizResize() {
-                var width = document.getElementById("resizeWidth").value;
-                var height = document.getElementById("resizeHeight").value;
-                viz.setFrameSize(parseInt(width, 10), parseInt(height, 10));
+            if (vizCount >= vizLen) { 
+            // Keep the vizCount in the bounds of the array index.
+                vizCount = 0;
             }
+            
+            else if (vizCount < 0) {
+                vizCount = vizLen - 1;
+            }
+            
+            if (viz) { // If a viz object exists, delete it.
+                viz.dispose();
+            }
+
+            var vizURL = vizList[vizCount];
+            viz = new tableau.Viz(vizDiv, vizURL, options); 
         }
     </script>
 </head>
 
-<body onload="initViz();">
-    <div id="vizContainer" style="width:1600px; height:700px;"></div>    
+<body onload="createViz(0);">
+    <div id="vizContainer" style="width:800px; height:700px;"></div>
     <div id="controls" style="padding:20px;">
-        <form id="resizeForm">
-            <input type="text" id="resizeWidth" placeholder="Width">
-            <input type="text" id="resizeHeight" placeholder="Height">
-            <button type="button" onClick="vizResize();">Resize</button>
-        </form>
-    </div>
+        <button style="width:100px;" onclick="javascript:createViz(-1);">Previous</button>
+        <button style="width:100px;" onclick="javascript:createViz(1);">Next</button>
+    </div> 
 </body>
 
 </html>
