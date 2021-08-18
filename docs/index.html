@@ -49,11 +49,9 @@
 <body onload="createViz(0);">
     <div id="vizContainer" style="width:800px; height:700px;"></div>
     <div id="controls" style="padding:20px;">
-        <script type="text/javascript">
-            for (var i = 0; i < vizLen; i++) {
+        <% for (var i = 0; i < vizLen; i++) { %>
                 <button style="width:100px;" onclick="javascript:createViz(i);">i+1</button>
-            }
-        </script>
+            } %>
     </div> 
 </body>
 
