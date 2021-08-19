@@ -39,35 +39,28 @@
             if (viz) { // If a viz object exists, delete it.
                 viz.dispose();
             }
-            
-            var pageNumberDiv = document.createElement("div");
-            var vizNum = vizCount + 1;
-            var pageNumber = document.createTextNode("Page " + vizNum + "of " + vizLen);
-            pageNumberDiv.appendChild(pageNumber);
-            document.body.insertBefore(pageNumberDiv, document.getElementById("content"));
 
             var vizURL = vizList[vizCount];
             viz = new tableau.Viz(vizDiv, vizURL, options); 
         }
-    </script>
-    /*<style>
-        #content {
-            display: table
-        }
         
-        #pageNumber:after {
-            counter-increment: page;
-            content: counter(page);
+        function addPageNumber() {
+            var pageNumberDiv = document.getElementById("numContainer");
+            var vizNum = vizCount + 1;
+            var pageNumber = document.createTextNode("Page " + vizNum + "of " + vizLen);
+            pageNumberDiv.appendChild(pageNumber);
+            document.body.insertBefore(pageNumberDiv, document.getElementById("content"));
         }
-    </style>*/
+    </script>
 </head>
 
-<body onload="createViz(0);">
+<body onload="createViz(0); addPageNumber();">
     <div id="content">
-        <div id="vizContainer" style="width:800px; height:900px;"></div>
+        <div id="numContainer" style="width:150px; height:80px;"></div>
+        <div id="vizContainer" style="width:800px; height:700px;"></div>
         <div id="controls" style="padding:20px;">
-            <button style="width:100px;" onclick="javascript:createViz(-1);">Previous</button>
-            <button style="width:100px;" onclick="javascript:createViz(1);">Next</button>
+            <button style="width:100px;" onclick="javascript:createViz(-1); addPageNumber();">Previous</button>
+            <button style="width:100px;" onclick="javascript:createViz(1); addPageNumber();">Next</button>
         </div> 
     </div>
 </body>
