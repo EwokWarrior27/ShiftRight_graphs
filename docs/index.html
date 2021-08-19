@@ -19,13 +19,13 @@
             vizLen = vizList.length,
             vizCount = 0;
         
-        function createViz(vizNum) {
+        function createViz(vizPlusMinus) {
             var vizDiv = document.getElementById("vizContainer"),
                 options = {
                     hideTabs: true
                 };
 
-            vizCount = vizNum;
+            vizCount = vizCount + vizPlusMinus;
             
             if (vizCount >= vizLen) { 
             // Keep the vizCount in the bounds of the array index.
@@ -47,11 +47,11 @@
 </head>
 
 <body onload="createViz(0);">
+    <div id="pageNumber"><h4>Page </h4></div>
     <div id="vizContainer" style="width:800px; height:700px;"></div>
     <div id="controls" style="padding:20px;">
-        <% for (var i = 0; i < vizLen; i++) { %>
-                <button style="width:100px;" onclick="javascript:createViz(i);">i+1</button>
-            } %>
+        <button style="width:100px;" onclick="javascript:createViz(-1);">Previous</button>
+        <button style="width:100px;" onclick="javascript:createViz(1);">Next</button>
     </div> 
 </body>
 
