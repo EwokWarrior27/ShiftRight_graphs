@@ -44,15 +44,27 @@
             viz = new tableau.Viz(vizDiv, vizURL, options); 
         }
     </script>
+    <style>
+        #content {
+            display: table
+        }
+        
+        #pageNumber:after {
+            counter-increment: page;
+            content: counter(page);
+        }
+    </style>
 </head>
 
 <body onload="createViz(0);">
-    <div id="pageNumber"><h4>Page </h4></div>
-    <div id="vizContainer" style="width:800px; height:700px;"></div>
-    <div id="controls" style="padding:20px;">
-        <button style="width:100px;" onclick="javascript:createViz(-1);">Previous</button>
-        <button style="width:100px;" onclick="javascript:createViz(1);">Next</button>
-    </div> 
+    <div id="content">
+        <div id="pageNumber"><h4>Page </h4></div>
+        <div id="vizContainer" style="width:800px; height:700px;"></div>
+        <div id="controls" style="padding:20px;">
+            <button style="width:100px;" onclick="javascript:createViz(-1);">Previous</button>
+            <button style="width:100px;" onclick="javascript:createViz(1);">Next</button>
+        </div> 
+    </div>
 </body>
 
 </html>
