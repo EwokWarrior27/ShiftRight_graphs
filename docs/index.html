@@ -39,12 +39,18 @@
             if (viz) { // If a viz object exists, delete it.
                 viz.dispose();
             }
+            
+            var pageNumberDiv = document.createElement("div");
+            var vizNum = vizCount + 1;
+            var pageNumber = document.createTextNode("Page " + vizNum + "of " + vizLen);
+            pageNumberDiv.appendChild(pageNumber);
+            document.body.insertBefore(pageNumberDiv, document.getElementById("content"));
 
             var vizURL = vizList[vizCount];
             viz = new tableau.Viz(vizDiv, vizURL, options); 
         }
     </script>
-    <style>
+    /*<style>
         #content {
             display: table
         }
@@ -53,13 +59,12 @@
             counter-increment: page;
             content: counter(page);
         }
-    </style>
+    </style>*/
 </head>
 
 <body onload="createViz(0);">
     <div id="content">
-        <div id="pageNumber"><h4>Page </h4></div>
-        <div id="vizContainer" style="width:800px; height:700px;"></div>
+        <div id="vizContainer" style="width:800px; height:900px;"></div>
         <div id="controls" style="padding:20px;">
             <button style="width:100px;" onclick="javascript:createViz(-1);">Previous</button>
             <button style="width:100px;" onclick="javascript:createViz(1);">Next</button>
