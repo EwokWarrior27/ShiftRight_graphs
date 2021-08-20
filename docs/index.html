@@ -27,18 +27,14 @@
 
             vizCount = vizCount + vizPlusMinus;
             
-            if (vizCount >= vizLen) { 
-            // Keep the vizCount in the bounds of the array index.
-                vizCount = 0;
-            }
+            if (vizCount >= vizLen) { // Keep the vizCount in the bounds of the array index.
+                vizCount = 0; }
             
             else if (vizCount < 0) {
-                vizCount = vizLen - 1;
-            }
+                vizCount = vizLen - 1; }
             
             if (viz) { // If a viz object exists, delete it.
-                viz.dispose();
-            }
+                viz.dispose(); }
 
             var vizURL = vizList[vizCount];
             viz = new tableau.Viz(vizDiv, vizURL, options); 
@@ -47,10 +43,17 @@
         function addPageNumber() {
             var pageNumberDiv = document.getElementById("numContainer");
             var vizNum = vizCount + 1;
+            pageNumberDiv.removeChild(pageNumberDiv.firstChild);
             var pageNumber = document.createTextNode("Page " + vizNum + "of " + vizLen);
             pageNumberDiv.appendChild(pageNumber);
             document.body.insertBefore(pageNumberDiv, document.getElementById("content"));
         }
+        
+        /*function createButtons() {
+            for (var i = 1; i <= vizLen; i++) {
+                
+            }
+        }*/
     </script>
 </head>
 
