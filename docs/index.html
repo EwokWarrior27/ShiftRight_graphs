@@ -43,9 +43,9 @@
         function addPageNumber() {
             var pageNumberDiv = document.getElementById("numContainer");
             var vizNum = vizCount + 1;
-            pageNumberDiv.removeChild(pageNumberDiv.firstChild);
             var pageNumber = document.createTextNode("Page " + vizNum + "of " + vizLen);
             pageNumberDiv.appendChild(pageNumber);
+            if (pageNumberDiv.firstChild != pageNumberDiv.lastChild) {pageNumberDiv.removeChild(pageNumberDiv.firstChild);}
             document.body.insertBefore(pageNumberDiv, document.getElementById("content"));
         }
         
