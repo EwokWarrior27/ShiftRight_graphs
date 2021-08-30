@@ -8,12 +8,13 @@
     <script type="text/javascript">
         <script type="text/javascript" src="https://public.tableau.com/javascripts/api/tableau-2.min.js"></script>
     <script type="text/javascript">
-        var vizList = ["https://public.tableau.com/views/company_graphs/companycountriesbyfoundingyear?:language=en-US&:display_count=n&:origin=viz_share_link",
-            "https://public.tableau.com/views/NumberofcompaniesinUSStates/companiesperstate?:language=en-US&:display_count=n&:origin=viz_share_link",
-            "https://public.tableau.com/views/company_graphs_16288763389140/companytypesbyyearest_?:language=en-US&:retry=yes&:display_count=n&:origin=viz_share_link",
+        var vizList = ["https://public.tableau.com/views/company_graphs/NumberofCompaniesEstablishedByCountryandYear?:language=en-US&:display_count=n&:origin=viz_share_link",
+            "https://public.tableau.com/views/NumberofcompaniesinUSStates/NumberofCompaniesByUSState?:language=en-US&:retry=yes&:display_count=n&:origin=viz_share_link",
+            "https://public.tableau.com/views/company_graphs_16288763389140/NumberofCompaniesEstablishedofEachTypeOverTime?:language=en-US&publish=yes&:display_count=n&:origin=viz_share_link",
             "https://public.tableau.com/views/NumberofProductsforeachCompany/NumberofProductsbyCompany?:language=en-US&:display_count=n&:origin=viz_share_link",
             "https://public.tableau.com/views/NumberofSubcategoriesineachProductCategory/NumberofSubcategoriesbyCategory?:language=en-US&:display_count=n&:origin=viz_share_link",
-            "https://public.tableau.com/views/ProductCountbySubcategoryandCategory/ProductCountbySubcategoryandCategory?:language=en-US&:display_count=n&:origin=viz_share_link"];
+            "https://public.tableau.com/views/ProductCountbySubcategoryandCategory/ProductCountbySubcategoryandCategory?:language=en-US&:display_count=n&:origin=viz_share_link",
+            "https://public.tableau.com/views/RevenuemillionsUSDInEachCategoryByRegion/RevenuemillionsUSDInEachCategoryByRegion?:language=en-US&publish=yes&:display_count=n&:origin=viz_share_link"];
         
         var viz,
             vizLen = vizList.length,
@@ -59,12 +60,12 @@
 
 <body onload="createViz(0); addPageNumber();">
     <div id="content">
-        <div id="numContainer" style="width:150px; height:80px;"></div>
         <div id="vizContainer" style="width:800px; height:700px;"></div>
         <div id="controls" style="padding:20px;">
             <button style="width:100px;" onclick="javascript:createViz(-1); addPageNumber();">Previous</button>
             <button style="width:100px;" onclick="javascript:createViz(1); addPageNumber();">Next</button>
-        </div> 
+        </div>
+        <div id="numContainer" style="width:150px; height:80px;"></div>
     </div>
 </body>
 
