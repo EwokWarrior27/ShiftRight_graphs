@@ -59,13 +59,13 @@
 </head>
 
 <body onload="createViz(0); addPageNumber();">
-    <div id="content">
-        <div id="vizContainer" style="width:800px; height:700px;"></div>
-        <div id="controls" style="padding:20px;">
+    <div id="content" style="position:relative;">
+        <div id="vizContainer" style="width:800px; height:700px; position:relative;"></div>
+        <div id="controls" style="padding:20px; position:relative;">
             <button style="width:100px;" onclick="javascript:createViz(-1); addPageNumber();">Previous</button>
             <button style="width:100px;" onclick="javascript:createViz(1); addPageNumber();">Next</button>
         </div>
-        <div id="numContainer" style="width:150px; height:80px;"></div>
+        <div id="numContainer" style="width:150px; height:80px; position:relative;"></div>
     </div>
 </body>
 
