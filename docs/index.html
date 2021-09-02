@@ -15,15 +15,6 @@
             position: relative;
             margin: auto;
         }
-        .footer {
-            /*width:75px;
-            height:50px;*/
-            position:absolute;
-            bottom: 20px;
-            left: 250px;
-            padding: 5px;
-            text-align: left;
-        }
     </style>
     
     <script type="text/javascript" src="https://public.tableau.com/javascripts/api/tableau-2.min.js"></script>
@@ -64,7 +55,7 @@
         }
         
         function addPageNumber() {
-            var pageNumberDiv = document.getElementByClass("footer");
+            var pageNumberDiv = document.getElementById("numContainer");
             var vizNum = vizCount + 1;
             var pageNumber = document.createTextNode("Page " + vizNum + " of " + vizLen);
             pageNumberDiv.appendChild(pageNumber);
@@ -87,8 +78,8 @@
         <div id="controls" style="padding:20px; position:relative;">
             <button style="width:100px;" onclick="javascript:createViz(-1); addPageNumber();">Previous</button>
             <button style="width:100px;" onclick="javascript:createViz(1); addPageNumber();">Next</button>
+            <div id="numContainer"></div>
         </div>
-        <div class="footer" id="numContainer"></div>
     <!--</div>-->
 </body>
 
