@@ -4,11 +4,23 @@
 <head>
     <title>Embed Testing</title>
     <style>
-        #banner {
-            width: 100%;
-            height: 100px;
-            position: relative;
+        .header {
+            padding: 20px;
+            position: fixed;
             fill: #057a9e;
+            text-align: center;
+        }
+        #vizContainer {
+            width:800px;
+            height:700px;
+            position:relative;
+        }
+        .footer {
+            /*width:75px;
+            height:50px;
+            position:absolute;*/
+            padding: 10px;
+            text-align: left;
         }
     </style>
     
@@ -67,14 +79,14 @@
 </head>
 
 <body onload="createViz(0); addPageNumber();">
-    <div id="content" style="position:relative;">
-        <div id="banner"></div>
+    <div id="content">
+        <div class="header"><h2>ShiftRight</h2></div>
         <div id="vizContainer" style="width:800px; height:700px; position:relative;"></div>
         <div id="controls" style="padding:20px; position:relative;">
             <button style="width:100px;" onclick="javascript:createViz(-1); addPageNumber();">Previous</button>
             <button style="width:100px;" onclick="javascript:createViz(1); addPageNumber();">Next</button>
         </div>
-        <div id="numContainer" style="width:150px; height:80px; position:relative;"></div>
+        <div class="footer" id="numContainer"></div>
     </div>
 </body>
 
