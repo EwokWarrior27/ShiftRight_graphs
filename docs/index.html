@@ -5,21 +5,20 @@
     <title>Embed Testing</title>
     <style>
         .header {
-            padding: 20px;
-            position: fixed;
+            padding: 5px;
             fill: #057a9e;
             text-align: center;
         }
         #vizContainer {
-            width:800px;
-            height:700px;
-            position:relative;
+            width: 800px;
+            height: 700px;
+            position: absolute;
         }
         .footer {
             /*width:75px;
-            height:50px;
-            position:absolute;*/
-            padding: 10px;
+            height:50px;*/
+            position:absolute;
+            padding: 5px;
             text-align: left;
         }
     </style>
@@ -67,7 +66,7 @@
             var pageNumber = document.createTextNode("Page " + vizNum + " of " + vizLen);
             pageNumberDiv.appendChild(pageNumber);
             if (pageNumberDiv.firstChild != pageNumberDiv.lastChild) {pageNumberDiv.removeChild(pageNumberDiv.firstChild);}
-            document.body.insertBefore(pageNumberDiv, document.getElementById("content"));
+            document.body.insertBefore(pageNumberDiv, document.getElementById("controls").nextSibling);
         }
         
         /*function createButtons() {
@@ -79,7 +78,7 @@
 </head>
 
 <body onload="createViz(0); addPageNumber();">
-    <div id="content">
+    <!--<div id="content">-->
         <div class="header"><h2>ShiftRight</h2></div>
         <div id="vizContainer" style="width:800px; height:700px; position:relative;"></div>
         <div id="controls" style="padding:20px; position:relative;">
@@ -87,7 +86,7 @@
             <button style="width:100px;" onclick="javascript:createViz(1); addPageNumber();">Next</button>
         </div>
         <div class="footer" id="numContainer"></div>
-    </div>
+    <!--</div>-->
 </body>
 
 </html>
