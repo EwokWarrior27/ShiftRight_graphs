@@ -9,11 +9,11 @@
             background-color: #057a9e;
             position: relative;
         }
-        .topnav #myLinks {
+        .topnav .links {
             display: none;
         }
         .topnav a {
-            color: white;
+            color: black;
             padding: 14px 16px;
             text-decoration: none;
             font-size: 14px;
@@ -26,7 +26,13 @@
             top: 0;
         }
         .topNav a:hover {
-            color: black;
+            color: #ddd;
+        }
+        .links a:hover {
+            color: #ddd;
+        }
+        .topNav:hover .links {
+            display: block;
         }
         #vizContainer {
             width: 800px;
@@ -40,7 +46,8 @@
             position: relative;
         }
         #numContainer {
-            margin: auto;
+            position: relative;
+            left: 20px;
             width: 100px;
             height: 25px;
         }
@@ -91,26 +98,26 @@
             if (pageNumberDiv.firstChild != pageNumberDiv.lastChild) {pageNumberDiv.removeChild(pageNumberDiv.firstChild);}
             document.body.insertBefore(pageNumberDiv, document.getElementById("controls").nextSibling);
         }
-        function myFunction() {
+        /*function myFunction() {
             var x = document.getElementById("myLinks");
             if (x.style.display === "block") {x.style.display = "none";}
             else {x.style.display = "block";}
-        }
+        }*/
     </script>
 </head>
 
 <body onload="createViz(0); addPageNumber();">
     <!--<div id="content">-->
         <div class="topnav">
-            <a href="#home" class="active"><h3>ShiftRight</h3></a>
+            <h2 class="header">ShiftRight</h2>
             <!-- Navigation links (hidden by default) -->
-            <div id="myLinks">
-                <a href="#news">News</a>
-                <a href="#contact">Contact</a>
-                <a href="#about">About</a>
+            <div class="links">
+                <a href="#">News</a>
+                <a href="#">Contact</a>
+                <a href="#">About</a>
             </div>
             <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
-            <a href="javascript:void(0);" class="menuButton" onclick="myFunction()">+</i></a>
+            <a href="javascript:void(0);" class="menuButton"><h2>+</h2></a>
         </div>
         <div id="vizContainer"></div>
         <div id="controls">
