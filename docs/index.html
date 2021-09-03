@@ -9,7 +9,7 @@
             background-color: #057a9e;
             position: relative;
         }
-        .topnav .links {
+        .topnav #links {
             display: none;
         }
         .topnav a {
@@ -28,10 +28,7 @@
         .topNav a:hover {
             color: #ddd;
         }
-        .links a:hover {
-            color: #ddd;
-        }
-        .topNav:hover .links {
+        .topNav:hover #links {
             display: block;
         }
         #vizContainer {
@@ -109,9 +106,9 @@
 <body onload="createViz(0); addPageNumber();">
     <!--<div id="content">-->
         <div class="topnav">
-            <h2 class="header">ShiftRight</h2>
+            <a href="#home" class="logo"><h3>ShiftRight</h3></a>
             <!-- Navigation links (hidden by default) -->
-            <div class="links">
+            <div id="links">
                 <a href="#">News</a>
                 <a href="#">Contact</a>
                 <a href="#">About</a>
