@@ -2,7 +2,7 @@
 <html>
 <link href="style.css" rel="style">
 <head>
-    <title>Embed Testing</title>
+    <title>Graphical Analysis</title>
     <style>
         .topnav {
             overflow: hidden;
@@ -11,6 +11,7 @@
         }
         .topnav #links {
             display: none;
+            padding: 5px;
         }
         .topnav a {
             color: black;
@@ -28,7 +29,7 @@
         .topNav a:hover {
             color: #ddd;
         }
-        .menuButton:hover #links {
+        .topnav a.menuButton:hover + .topnav #links {
             display: block;
         }
         #vizContainer {
@@ -95,11 +96,11 @@
             if (pageNumberDiv.firstChild != pageNumberDiv.lastChild) {pageNumberDiv.removeChild(pageNumberDiv.firstChild);}
             document.body.insertBefore(pageNumberDiv, document.getElementById("controls").nextSibling);
         }
-        /*function myFunction() {
-            var x = document.getElementById("myLinks");
+        function showMenu() {
+            var x = document.getElementById("links");
             if (x.style.display === "block") {x.style.display = "none";}
             else {x.style.display = "block";}
-        }*/
+        }
     </script>
 </head>
 
@@ -114,7 +115,7 @@
                 <a href="#">About</a>
             </div>
             <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
-            <a href="javascript:void(0);" class="menuButton"><h2>+</h2></a>
+            <a href="#" class="menuButton" onclick="showMenu();"><h2>+</h2></a>
         </div>
         <div id="vizContainer"></div>
         <div id="controls">
