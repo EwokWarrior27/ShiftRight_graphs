@@ -67,13 +67,13 @@
             vizLen = vizList.length,
             vizCount = 0;
         
-        function createViz(vizPlusMinus) {
+        function createViz(listNum) {
             var vizDiv = document.getElementById("vizContainer"),
                 options = {
                     hideTabs: true
                 };
 
-            vizCount = vizCount + vizPlusMinus;
+            vizCount = listNum;
             
             if (vizCount >= vizLen) { // Keep the vizCount in the bounds of the array index.
                 vizCount = 0; }
@@ -110,17 +110,21 @@
             <a href="#home" class="logo"><h3>ShiftRight</h3></a>
             <!-- Navigation links (hidden by default) -->
             <div id="links">
-                <a href="#">News</a>
-                <a href="#">Contact</a>
-                <a href="#">About</a>
+                <a href="#" onclick="javascript:createViz(0);">Number of Companies Established by Country and Year</a>
+                <a href="#" onclick="javascript:createViz(1);">Number of Companies by US State</a>
+                <a href="#" onclick="javascript:createViz(2);">Number of Companies Established of Each Type Over Time</a>
+                <a href="#" onclick="javascript:createViz(3);">Number of Products by Company</a>
+                <a href="#" onclick="javascript:createViz(4);">Number of Subcategories by Category</a>
+                <a href="#" onclick="javascript:createViz(5);">Product Count by Subcategory and Category</a>
+                <a href="#" onclick="javascript:createViz(6);">Revenue (millions USD) in Each Category by Country</a>
             </div>
             <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
             <a href="#" class="menuButton" onclick="showMenu();"><h2>+</h2></a>
         </div>
         <div id="vizContainer"></div>
         <div id="controls">
-            <button style="width:100px;" onclick="javascript:createViz(-1); addPageNumber();">Previous</button>
-            <button style="width:100px;" onclick="javascript:createViz(1); addPageNumber();">Next</button>
+            <!-- <button style="width:100px;" onclick="javascript:createViz(-1); addPageNumber();">Previous</button>
+            <button style="width:100px;" onclick="javascript:createViz(1); addPageNumber();">Next</button> -->
             <div id="numContainer"></div>
         </div>
     <!--</div>-->
