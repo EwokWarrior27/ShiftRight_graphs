@@ -32,22 +32,17 @@
         .topnav a.menuButton:hover + .topnav #links {
             display: block;
         }
-        #vizContainer {
-            width: 800px;
-            height: 700px;
-            position: relative;
-            left: 40px;
-        }
-        #controls {
-            margin: auto;
-            padding: 20px;
-            position: relative;
-        }
         #numContainer {
             position: relative;
             left: 20px;
             width: 100px;
             height: 25px;
+        }
+        #vizContainer {
+            width: 800px;
+            height: 700px;
+            position: relative;
+            left: 40px;
         }
     </style>
     
@@ -107,27 +102,22 @@
 <body onload="createViz(0); addPageNumber();">
     <!--<div id="content">-->
         <div class="topnav">
-            <a href="#home" class="logo"><h3>ShiftRight</h3></a>
+            <a href="#home" class="logo" onclick="createViz(0);"><h3>ShiftRight</h3></a>
+            <div id="numContainer"></div>
             <!-- Navigation links (hidden by default) -->
             <div id="links">
-                <a href="#" onclick="javascript:createViz(0);">Number of Companies Established by Country and Year</a>
-                <a href="#" onclick="javascript:createViz(1);">Number of Companies by US State</a>
-                <a href="#" onclick="javascript:createViz(2);">Number of Companies Established of Each Type Over Time</a>
-                <a href="#" onclick="javascript:createViz(3);">Number of Products by Company</a>
-                <a href="#" onclick="javascript:createViz(4);">Number of Subcategories by Category</a>
-                <a href="#" onclick="javascript:createViz(5);">Product Count by Subcategory and Category</a>
-                <a href="#" onclick="javascript:createViz(6);">Revenue (millions USD) in Each Category by Country</a>
+                <a href="#" onclick="javascript:createViz(0); showMenu();">Number of Companies Established by Country and Year</a>
+                <a href="#" onclick="javascript:createViz(1); showMenu();">Number of Companies by US State</a>
+                <a href="#" onclick="javascript:createViz(2); showMenu();">Number of Companies Established of Each Type Over Time</a>
+                <a href="#" onclick="javascript:createViz(3); showMenu();">Number of Products by Company</a>
+                <a href="#" onclick="javascript:createViz(4); showMenu();">Number of Subcategories by Category</a>
+                <a href="#" onclick="javascript:createViz(5); showMenu();">Product Count by Subcategory and Category</a>
+                <a href="#" onclick="javascript:createViz(6); showMenu();">Revenue (millions USD) in Each Category by Country</a>
             </div>
-            <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
+            <!-- Icon to toggle the navigation links -->
             <a href="#" class="menuButton" onclick="showMenu();"><h2>+</h2></a>
         </div>
         <div id="vizContainer"></div>
-        <div id="controls">
-            <!-- <button style="width:100px;" onclick="javascript:createViz(-1); addPageNumber();">Previous</button>
-            <button style="width:100px;" onclick="javascript:createViz(1); addPageNumber();">Next</button> -->
-            <div id="numContainer"></div>
-        </div>
-    <!--</div>-->
 </body>
 
 </html>
