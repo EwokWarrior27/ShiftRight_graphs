@@ -34,7 +34,7 @@
         }
         #numContainer {
             position: relative;
-            left: 20px;
+            right: 20px;
             width: 100px;
             height: 25px;
         }
@@ -103,7 +103,6 @@
     <!--<div id="content">-->
         <div class="topnav">
             <a href="#home" class="logo" onclick="createViz(0);"><h3>ShiftRight</h3></a>
-            <div id="numContainer"></div>
             <!-- Navigation links (hidden by default) -->
             <div id="links">
                 <a href="#" onclick="javascript:createViz(0); showMenu();">Number of Companies Established by Country and Year</a>
@@ -117,6 +116,7 @@
             <!-- Icon to toggle the navigation links -->
             <a href="#" class="menuButton" onclick="showMenu();"><h2>+</h2></a>
         </div>
+        <div id="numContainer"></div>
         <div id="vizContainer"></div>
 </body>
 
