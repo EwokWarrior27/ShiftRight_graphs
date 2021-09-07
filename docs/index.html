@@ -8,6 +8,7 @@
             overflow: hidden;
             background-color: #057a9e;
             position: relative;
+            height: 150px;
         }
         .topnav #links {
             display: none;
@@ -33,9 +34,11 @@
             display: block;
         }
         #numContainer {
-            position: absolute;
+            position: relative;
             margin-right: 20px;
+            top: 155px;
             right: 20px;
+            padding: 20px;
             width: 100px;
             height: 25px;
         }
@@ -82,6 +85,7 @@
 
             var vizURL = vizList[vizCount];
             viz = new tableau.Viz(vizDiv, vizURL, options); 
+            addPageNumber();
         }
         
         function addPageNumber() {
@@ -100,7 +104,7 @@
     </script>
 </head>
 
-<body onload="createViz(0); addPageNumber();">
+<body onload="createViz(0);">
     <!--<div id="content">-->
         <div class="topnav">
             <a href="#home" class="logo" onclick="createViz(0);"><h3>ShiftRight</h3></a>
